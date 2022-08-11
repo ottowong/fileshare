@@ -2,6 +2,10 @@ const AWS = require('aws-sdk');
 const fetch = require('node-fetch');
 const Blob = require('node-blob');
 const path = require('path');
+
+const multer = require('multer')
+const multerS3 = require('multer-s3')
+
 require('dotenv').config()
 
 const s3 = new AWS.S3({
@@ -16,18 +20,30 @@ const db = require('../database/config');
 
 const router = express.Router();
 
-async function uploadStuff(file,fileName) {
+// async function uploadStuff(file,fileName) {
+//   console.log("uplooad");
+//     const uploadedImage = await s3.upload({
+//       Bucket: process.env.AWS_S3_BUCKET_NAME,
+//       // Key: req.files[0].originalFilename,
+//       Key: fileName,
+//       Body: file.data,
+//       ACL: 'public-read',
+//       ContentType: file.mimetype
+//     }).promise()
+// }
+
+function uploadStuff(file,fileName) {
   console.log("uplooad");
-    const uploadedImage = await s3.upload({
+    const uploadedImage = multer({
+      s3: s3,
       Bucket: process.env.AWS_S3_BUCKET_NAME,
       // Key: req.files[0].originalFilename,
       Key: fileName,
       Body: file.data,
       ACL: 'public-read',
       ContentType: file.mimetype
-    }).promise()
+    })
 }
-
 
 router.post('/', async function(req, res){
   if (req.files) {

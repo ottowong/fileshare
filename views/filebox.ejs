@@ -1,0 +1,23 @@
+<br>File(s) uploaded!<br>
+<% for (var i=0; i < urls.length; i++) { %>
+    <a href="<%= urls[i] %>" id="link<%= i %>"><%= urls[i] %></a>
+    <input id="item<%= i %>" value="<%= urls[i] %>" style="display:none">
+    <button onclick="myFunction(<%= i %>)">Copy url</button>
+    <br><br>
+<% } %>
+
+<script>
+
+function myFunction(n) {
+  /* Get the text field */
+  var copyText = document.getElementById("item"+n);
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+}
+
+</script>

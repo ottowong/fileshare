@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="<%= configuration.html.lang %>" dir="<%= configuration.html.dir %>">
+  <%- include('shared/header') -%>
+  <body>
+    <h3>Upload files</h3>
+    <form action="/" method="POST" enctype="multipart/form-data" class="upload-container">
+      <div id="dad">
+        <div id="fupload">
+          <input type="file" name="file" id="file_upload" multiple>
+        </div>
+        <br>
+        <button class="upload-btn">upload</button>
+      </div>
+    </form>
+    <%- yield(file, locals) -%>
+
+    <%- include('shared/footer') -%>
+  </body>
+</html>

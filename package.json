@@ -1,0 +1,23 @@
+{
+  "name": "NodeExpressEJSTemplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon Neutert",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1178.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.17.2",
+    "express-fileupload": "^1.4.0",
+    "multer-s3": "^3.0.1",
+    "node-blob": "^0.0.2",
+    "node-fetch": "^2.6.7",
+    "sqlite3": "^5.0.8"
+  }
+}

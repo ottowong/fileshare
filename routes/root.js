@@ -41,7 +41,8 @@ function uploadStuff(file,fileName) {
       Key: fileName,
       Body: file.data,
       ACL: 'public-read',
-      ContentType: file.mimetype
+      ContentType: file.mimetype,
+      storage: multer.diskStorage
     })
 }
 
